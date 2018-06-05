@@ -1,0 +1,12 @@
+/**
+https://www.hackerrank.com/challenges/binary-search-tree-1/problem
+*/
+
+( select N, 'Root' from BST where P is null ) R
+UNION
+
+(select distinct A.N, "Inner" from BST A inner join BST B on A.N = B.P ) I
+
+UNION
+
+(select distinct A.N, "Leaf" from BST A where A.N not in (select distinct B.P from BST B))
