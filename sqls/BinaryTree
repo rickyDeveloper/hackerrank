@@ -2,11 +2,17 @@
 https://www.hackerrank.com/challenges/binary-search-tree-1/problem
 */
 
-( select N, 'Root' from BST where P is null ) R
+select * from
+(
+( select N, 'Root'  from BST where P is null )
+
 UNION
 
-(select distinct A.N, "Inner" from BST A inner join BST B on A.N = B.P ) I
+(select distinct A.N, "Inner" as type from BST A inner join BST B on A.N = B.P and A.P is not NULL)
 
 UNION
 
-(select distinct A.N, "Leaf" from BST A where A.N not in (select distinct B.P from BST B))
+(select distinct A.N, "Leaf" from BST A where A.N not in (select B.P from BST B where B.P is not null))
+) as I
+order by N
+
