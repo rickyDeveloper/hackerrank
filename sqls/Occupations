@@ -2,7 +2,15 @@
 https://www.hackerrank.com/challenges/the-pads/problem
 */
 
-select CONCAT( CONCAT ( CONCAT ( CONCAT(Name,'(') ,  SUBSTRING(Occupation, 1, 1)) , ')' )) as Profession from OCCUPATIONS order by Name asc
+(
+    select A.Profession from (select CONCAT( CONCAT ( CONCAT ( CONCAT(Name,'(') ,  SUBSTRING(Occupation, 1, 1)) , ')' )) as Profession from OCCUPATIONS order by Name  ) A order by A.Profession
 
-select CONCAT(CONCAT(CONCAT(CONCAT('There are a total of ', count(Name)), ' '), LOWER(Occupation)), 's') as RESULT from OCCUPATIONS group by Occupation order by count(Name), Occupation
+)
 
+UNION
+
+(
+select A.Profession from (select CONCAT(CONCAT(CONCAT(CONCAT('There are a total of ', count(Name)), ' '), LOWER(Occupation)), 's') as Profession from OCCUPATIONS group by Occupation order by count(Name), Occupation) A order by A.Profession
+)
+
+on from (select CONCAT(CONCAT(CONCAT(CONCAT('There are a total of ', count(Name)), ' '), LOWER(Occupation)), 's') as Profession from OCCUPATIONS group by Occupation order by count(Name), Occupation) A order by A.Profession)
