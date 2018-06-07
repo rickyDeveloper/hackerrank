@@ -3,24 +3,28 @@
 import os
 import sys
 
-def inOrderTraversal(indexes, nodeValue, traversalResults):
+
+def inOrderTraversal(indexes, traversalResults):
 
     if(indexes is None or len(indexes) ==0):
         return traversalResults
 
-    leftNode = indexes[nodeValue-1][0]
-    rightNode = indexes[nodeValue-1][1]
+    nodes = [[indexes[0][0], 1,indexes[0][1]]]
 
-    if(leftNode != -1):
-        inOrderTraversal(indexes, leftNode, traversalResults)
+    while len(nodes) != 0:
+        currentNode = nodes[0]
 
-    traversalResults.append(nodeValue)
-
-    if(rightNode != -1):
-        inOrderTraversal(indexes, rightNode, traversalResults)
+        if(currentNode[0] == -1):
+            traversalResults.append(currentNode[1])
+            nodes.pop(0)
+            if(currentNode[2] != -1):
+                nodes = [[indexes[currentNode[2]-1][0], currentNode[2],indexes[currentNode[2]-1][1]]] + nodes
+        else:
+            prefix = [[indexes[currentNode[0]-1][0], currentNode[0],indexes[currentNode[0]-1][1]]]
+            nodes[0][0] = -1
+            nodes = prefix + nodes
 
     return traversalResults
-
 
 #
 # Complete the swapNodes function below.
@@ -57,27 +61,30 @@ def swapNodes(indexes, queries):
 
 
         result = []
-        inOrderTraversal(indexes, 1, result)
+        inOrderTraversal(indexes, result)
         results.append(result)
 
     return results
 
 def inputData():
 
-    n = int(input())
-
     indexes = []
 
-    for _ in range(n):
-        indexes.append(list(map(int, input().rstrip().split())))
-
-    queries_count = int(input())
+    indexes.append([2,3])
+    indexes.append([4,-1])
+    indexes.append([5,-1])
+    indexes.append([6,-1])
+    indexes.append([7,8])
+    indexes.append([-1,9])
+    indexes.append([-1,-1])
+    indexes.append([10,11])
+    indexes.append([-1,-1])
+    indexes.append([-1,-1])
+    indexes.append([-1,-1])
 
     queries = []
-
-    for _ in range(queries_count):
-        queries_item = int(input())
-        queries.append(queries_item)
+    queries.append(2)
+    queries.append(4)
 
     print (swapNodes(indexes, queries))
 
