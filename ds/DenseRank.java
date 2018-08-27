@@ -9,6 +9,10 @@ public class DenseRank {
     public static void main(String[] args) {
 
 
+        int[] arr = {1, 2, 4, 6, 5};
+
+        System.out.println(arr.length);
+
         List<Integer> input = new ArrayList<>();
         input.add(100);
         input.add(50);

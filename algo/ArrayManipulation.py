@@ -15,7 +15,9 @@ for x in range(querySize):
 
 
 def doManupulation(arraySize, queries):
+
     array = [0 for x in range(arraySize)]
+
     if(len(array) ==0 or len(queries) ==0):
         return 0
 
@@ -27,15 +29,10 @@ def doManupulation(arraySize, queries):
         if(endIndex >= startIndex and endIndex <= len(array) and valuesToBeAdded != 0):
             for k in range(startIndex-1, endIndex):
                 array[k] = array[k] + valuesToBeAdded
-
-    maxValueTillNow = array[0]
-
-    for value in range(1,len(array)):
-        if array[value] > maxValueTillNow:
-            maxValueTillNow = array[value]
+                if array[k] > maxValueTillNow:
+                    maxValueTillNow = array[k]
 
     return maxValueTillNow
-
 
 
 print(doManupulation(arraySize, manupulationMatrix))

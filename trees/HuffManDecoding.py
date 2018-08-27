@@ -18,7 +18,6 @@ def createTree():
 
 
 
-
 def decodeHuff(root , s):
 
     if root is None:

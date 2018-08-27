@@ -1,4 +1,3 @@
-package com.naiyarv;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,9 +5,11 @@ import java.util.List;
 /**
  * Created by vikasnaiyar on 24/07/18.
  */
-public class KthLargestElement {
+class KthLargestElement extends DenseRank{
 
     public static void main(String[] args) {
+
+        DenseRank.main(new String[1]);
 
         List<Integer> input = Arrays.asList(2, 2, 2, 3, 3, 4, 4, 5);
 
@@ -27,7 +28,7 @@ public class KthLargestElement {
             heapify(minHeap, i);
         }
 
-        System.out.println(minHeap);
+        //System.out.println(minHeap);
 
         return minHeap;
 

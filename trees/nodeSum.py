@@ -1,5 +1,7 @@
 from Node import Node
 
+
+# Util method to create BST
 def createTree():
     left = Node(4,10,None, None)
     right = Node(5,14,None, None)
@@ -9,9 +11,21 @@ def createTree():
 
     root = Node(1,5,left1,root1)
 
+    list = []
+
+    list.append((1,2))
+
+    data = list.pop()
+
+    print data[1]
+
+    print data[1]
+
+
     return root
 
 
+# Method to creat sum and also print nodes
 def sumNodes(root, prevSum):
 
     if root is None:
@@ -35,8 +49,6 @@ def sumNodes(root, prevSum):
         prevSum = sumNodes(root.getLeft(), prevSum)
 
     return prevSum
-
-
 
 
 tree = createTree()
