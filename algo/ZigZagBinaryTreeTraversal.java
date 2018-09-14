@@ -6,7 +6,6 @@ package algo;
 public class ZigZagBinaryTreeTraversal {
 
     public static void main(String[] args) {
-
         Node root = new Node(1);
         Node leftChild = new Node(2);
         Node rightChild = new Node(3);
