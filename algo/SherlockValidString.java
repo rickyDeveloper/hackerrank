@@ -39,7 +39,13 @@ public class SherlockValidString {
             return "YES";
         }
 
+
         if(values.get(1) == values.get(values.size()-1) && (values.get(0) - values.get(values.size()-1)) == 1) {
+            return "YES";
+        }
+
+
+        if(values.get(1) == values.get(values.size()-1) && values.get(0) == 1) {
             return "YES";
         }
 
