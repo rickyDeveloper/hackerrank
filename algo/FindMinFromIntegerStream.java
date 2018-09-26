@@ -11,7 +11,14 @@ public class FindMinFromIntegerStream {
 
     public static void main(String[] args) {
 
-        int[] stream = {14,5,19,1,17, 7, 23, 95, 67};
+        int[] stream = {-5,4,-2,3,1, -1, -6, -1, 0, -5};
+
+
+
+        System.out.println(minPower(stream));
+
+
+       /* int[] stream = {14,5,19,1,17, 7, 23, 95, 67};
 
         List<Integer>  heap = new ArrayList<>();
 
@@ -26,7 +33,30 @@ public class FindMinFromIntegerStream {
         minHeapify(heap);
 
 
-        System.out.println(heap);
+        System.out.println(heap);*/
+    }
+
+
+    public static int minPower(int[]  p) {
+        // Write your code here
+        int lastIndex = p.length -1;
+        int min = 1;
+        while(lastIndex >=0) {
+            int power = p[lastIndex];
+            if(power < 0) {
+                min += Math.abs(power);
+            } else {
+                if(power < min) {
+                    min =  min - power;
+                } else {
+                    min = 1;
+                }
+            }
+            --lastIndex;
+        }
+
+        return min;
+
     }
 
     private static void minHeapify(List<Integer> heap) {
