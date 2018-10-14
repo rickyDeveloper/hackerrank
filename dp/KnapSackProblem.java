@@ -6,6 +6,7 @@ package dp;
 public class KnapSackProblem {
 
     public static void main(String[] args) {
+
         int val[] = new int[]{60, 100, 120};
         int wt[] = new int[]{10, 20, 30};
         int  W = 50;
