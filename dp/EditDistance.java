@@ -8,16 +8,23 @@ public class EditDistance {
 
     public static void main(String[] args) {
 
-        // String str1 = "geek", str2 = "gesek";
-        String str1 = "sunday";
-        String str2 = "saturday";
 
-        System.out.println(findMinOperation(str1, str2, 0, 0));
-
-        System.out.println(findMinOperationDP(str1, str2));
 
     }
 
+
+    /**
+     *
+     *
+     *  // String str1 = "geek", str2 = "gesek";
+     String str1 = "sunday";
+     String str2 = "saturday";
+
+     System.out.println(findMinOperation(str1, str2, 0, 0));
+
+     System.out.println(findMinOperationDP(str1, str2));
+
+     */
     /**
      *
      * @param str1
